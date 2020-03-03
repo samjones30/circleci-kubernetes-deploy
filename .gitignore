@@ -1,0 +1,3 @@
+#gitignore file
+#ignore kube_general folder
+kube_general/
