@@ -32,7 +32,7 @@ jobs:
       - run:
           name: Deploy Code
           command: |
-            chmoud +x ./scripts/ci-deploy.sh
+            chmod +x ./scripts/ci-deploy.sh
             ./scripts/ci-deploy.sh
 workflows:
   version: 2
