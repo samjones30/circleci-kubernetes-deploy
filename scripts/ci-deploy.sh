@@ -14,8 +14,6 @@ envsubst <./kube/k8s-sample-deployment.yaml >./kube/k8s-sample-deployment.yaml.o
 mv ./kube/k8s-sample-deployment.yaml.out ./kube/k8s-sample-deployment.yaml
 
 echo -e "$KUBERNETES_CLUSTER_CERTIFICATE" > cert.crt
-cat cert.crt
-#base64 --decode cert.txt > cert.crt
 
 ./kubectl \
   --kubeconfig=/dev/null \
