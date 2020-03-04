@@ -13,13 +13,14 @@ export COMMIT_SHA1=$COMMIT_SHA1
 envsubst <./kube/k8s-sample-deployment.yaml >./kube/k8s-sample-deployment.yaml.out
 mv ./kube/k8s-sample-deployment.yaml.out ./kube/k8s-sample-deployment.yaml
 
-echo "$KUBERNETES_CLUSTER_CERTIFICATE" > cert.txt 
-cat cert.txt
-base64 --decode cert.txt > cert.crt
+#echo "$KUBERNETES_CLUSTER_CERTIFICATE" > cert.txt 
+#cat cert.txt
+#base64 --decode cert.txt > cert.crt
 
 ./kubectl \
   --kubeconfig=/dev/null \
   --server=$KUBERNETES_SERVER \
-  --certificate-authority=cert.crt \
+#  --certificate-authority=cert.crt \
+  --certificate-authority=$KUBERNETES_CLUSTER_CERTIFICATE \
   --token=$KUBERNETES_TOKEN \
   apply -f ./kube/
